@@ -1,0 +1,5 @@
+name = "Anastasiya"
+my_email = "a.m.scherbakova@yandex.ru"
+correct_password = "98765!"
+incorrect_password = "12345"
+domain = "yandex.ru"
