@@ -11,20 +11,12 @@ class TestConstructor:
         }
 
         for section_name, section_locator in SECTIONS.items():
-            try:
-                element = WebDriverWait(browser, 10).until(
-                    EC.presence_of_element_located(section_locator)
-                )
-                element.click()
+            element = WebDriverWait(browser, 10).until(
+                EC.presence_of_element_located(section_locator)
+            )
+            element.click()
 
-                active_section = WebDriverWait(browser, 10).until(
-                    EC.presence_of_element_located(AllLocators.ACTIVE_SECTION)
-                )
-                assert section_name in active_section.text
-
-            except Exception as e:
-                print(f"Ошибка при работе с разделом '{section_name}':")
-                print(f"Локатор: {section_locator}")
-                print(f"Ошибка: {str(e)}")
-                raise
-
+            active_section = WebDriverWait(browser, 10).until(
+                EC.presence_of_element_located(AllLocators.ACTIVE_SECTION)
+            )
+            assert section_name in active_section.text

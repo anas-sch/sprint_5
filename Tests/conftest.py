@@ -3,6 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.common.exceptions import WebDriverException
+from urls import STELLAR_BURGERS_MAIN_URL
 
 
 @pytest.fixture (scope="function")
@@ -15,10 +16,8 @@ def browser():
     driver = None
     try:
         driver = webdriver.Chrome(options=options)
-        driver.set_page_load_timeout(5)
-        driver.implicitly_wait(5)
 
-        driver.get("https://stellarburgers.nomoreparties.site/")
+        driver.get(STELLAR_BURGERS_MAIN_URL)
 
         WebDriverWait(driver, 10).until(
             lambda b: "Stellar Burgers" in b.title,
